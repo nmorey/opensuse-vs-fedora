@@ -17,7 +17,9 @@ jobs:
     container: ${{ matrix.docker }}
 
     steps:
-      - run: zypper -n install
+      - run: zypper -n install dnf
+        if: ${{ startsWith(matrix.docker,  'opensuse') }}
+      - run: dnf -y install
               checkbashisms cpio dash gzip
               bzip2 xz
               binutils glibc glibc-32bit glibc-locale desktop-file-utils
