@@ -16,7 +16,7 @@ jobs:
 
     container: ${{ matrix.docker }}
 
-    steps:
+    steps: 
       - run: zypper -n install dnf
         if: ${{ startsWith(matrix.docker,  'opensuse') }}
       - run: dnf -y install
