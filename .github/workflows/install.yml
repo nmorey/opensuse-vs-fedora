@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - run: zypper -n install dnf
-        if: ${{ startsWith(matrix.docker,  'opensuse') && matrix.pkg == 'dnf' }}
+        if: ${{ startsWith(matrix.docker,  'opensuse') }}
       - run: cp -r /etc/zypp/repos.d /etc/dnf/
         if: ${{ startsWith(matrix.docker,  'opensuse') && matrix.pkg == 'dnf' }}
       - run: dnf -y install
